@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>BrandBrahma Platform Overview</title>
+<meta name="description" content="BrandBrahma is an agentic AI platform with four AI Operating Systems that name, build, market and grow a brand.">
+<meta property="og:title" content="BrandBrahma Platform Overview">
+<meta property="og:description" content="Four AI Operating Systems and 30+ AI agents, live at brandbrahma.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: vertical deck of full-height slides on BrandBrahma navy, one orange accent, cream "paper" detail panels. */
+:root{
+  --bg:#0E1631; --bg2:#142046; --line:rgba(253,250,245,.13); --line2:rgba(253,250,245,.22);
+  --fg:#FDFAF5; --muted:#AEB5CE; --dim:#7E87A8;
+  --orange:#E8590A; --orange2:#FF8540; --paper:#FDFAF5; --ink:#17203F; --inkmuted:#5A6385;
+  --good:#3CC48A; --warn:#F2B33D; --approve:#86A8FF; --next:#B18CFF;
+  --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --body:"Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme:dark;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+html{margin:0;scroll-snap-type:y proximity;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--orange2);outline-offset:3px;border-radius:6px}
+.mono{font-family:var(--mono)}
+.progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;background:var(--line);z-index:50}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--orange2));transition:width .35s}
+.nav{position:fixed;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:6px;background:rgba(14,22,49,.88);backdrop-filter:blur(10px);border:1px solid var(--line2);border-radius:999px;padding:5px}
+.nav button{background:none;border:0;cursor:pointer;height:36px;min-width:36px;border-radius:999px;display:grid;place-items:center;padding:0 10px;font-size:13px;font-weight:600}
+.nav button:hover{background:var(--line)}
+.nav .count{font-family:var(--mono);font-size:12px;color:var(--muted);padding:0 4px}
+.slide{min-height:100vh;min-height:100svh;scroll-snap-align:start;display:flex;align-items:center;padding-block:72px 84px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line)}
+.slide.alt{background:var(--bg2)}
+.wrap{width:100%;max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange2);display:flex;gap:12px;align-items:center}
+.eyebrow::after{content:"";height:1px;width:48px;background:var(--orange);opacity:.6}
+.h2{font-size:clamp(32px,4.6vw,58px);line-height:1.04}
+.h2 em{font-style:italic;color:var(--orange2)}
+.lede{font-size:clamp(16px,1.5vw,19px);color:var(--muted);max-width:64ch}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:minmax(0,1fr)}}
+.card{border:1px solid var(--line);border-radius:14px;padding:20px;background:rgba(27,42,94,.35);min-width:0}
+.card h3{font-family:var(--body);font-weight:700;font-size:17px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:14.5px}
+.paper{background:var(--paper);color:var(--ink);border-radius:16px;padding:24px;min-width:0}
+.paper .muted{color:var(--inkmuted)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 10px;border:1px solid currentColor;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.a-auto{color:var(--good)} .a-oneclick{color:var(--warn)} .a-approve{color:var(--approve)} .a-next{color:var(--next)}
+.paper .a-auto{color:#0F8A57}.paper .a-oneclick{color:#A86A00}.paper .a-approve{color:#2E55C9}.paper .a-next{color:#7A45D6}
+.btn{border:1px solid var(--line2);background:transparent;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer}
+.btn:hover{border-color:var(--orange2)}
+.btn.primary{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn.primary:hover{background:var(--orange2)}
+.btn:disabled{opacity:.4;cursor:default}
+.chip{border:1px solid var(--line2);background:transparent;border-radius:999px;padding:7px 13px;font-size:13.5px;cursor:pointer;color:var(--fg)}
+.chip[aria-pressed="true"],.chip[aria-selected="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.chip:hover{border-color:var(--orange2)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.brand{font-family:var(--display);font-size:clamp(54px,10vw,132px);line-height:.92}
+.brand span{color:var(--orange)}
+.tag{font-size:clamp(19px,2.3vw,28px);max-width:30ch;line-height:1.3}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.stat{padding:18px 14px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,46px);line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13px;color:var(--muted)}
+@media (max-width:820px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(2n){border-right:0}.stat{border-bottom:1px solid var(--line)}}
+.meta{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--dim);font-family:var(--mono)}
+.vs{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:20px}
+@media (max-width:820px){.vs{grid-template-columns:minmax(0,1fr)}}
+.vendors{display:flex;flex-direction:column;gap:8px}
+.vendor{display:flex;justify-content:space-between;gap:10px;padding:11px 14px;border:1px dashed var(--line2);border-radius:10px;font-size:14.5px}
+.vendor span:last-child{color:var(--dim);font-size:13px;text-align:right}
+.arrow{display:grid;place-items:center;font-family:var(--display);font-size:42px;color:var(--orange)}
+.one .vendor{border-style:solid;border-color:var(--line);background:rgba(232,89,10,.08)}
+.one .vendor span:last-child{color:var(--orange2)}
+.osgrid .card{display:flex;flex-direction:column;gap:10px}
+.osgrid .card b{font-family:var(--display);font-weight:400;font-size:28px}
+.osgrid ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:4px}
+.journey{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:22px}
+@media (max-width:860px){.journey{grid-template-columns:minmax(0,1fr)}}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.steps button{width:100%;text-align:left;background:none;border:0;border-left:2px solid var(--line2);padding:8px 12px;cursor:pointer;display:flex;gap:10px;font-size:14.5px;color:var(--muted)}
+.steps button span{font-family:var(--mono);font-size:12px;color:var(--dim);padding-top:2px}
+.steps button[aria-current="step"]{border-left-color:var(--orange);color:var(--fg);background:rgba(232,89,10,.09)}
+.steps button.done{color:var(--fg)}
+.steps button.done span{color:var(--good)}
+.stage{display:flex;flex-direction:column;gap:14px}
+.stage h3{font-size:clamp(26px,3vw,36px)}
+.outputs{display:flex;flex-wrap:wrap;gap:6px}
+.outputs i{font-style:normal;font-size:12.5px;border:1px solid rgba(23,32,63,.2);border-radius:6px;padding:3px 8px}
+.explorer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px}
+@media (max-width:900px){.explorer{grid-template-columns:minmax(0,1fr)}}
+.agentlist{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow:auto;padding-right:4px}
+.agentbtn{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);background:rgba(27,42,94,.28);border-radius:10px;padding:10px 12px;cursor:pointer}
+.agentbtn:hover,.agentbtn[aria-selected="true"]{border-color:var(--orange)}
+.agentbtn[aria-selected="true"]{background:rgba(232,89,10,.1)}
+.agentbtn b{font-weight:600;font-size:14.5px}
+.agentbtn small{display:block;font-size:12px;color:var(--dim)}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;background:currentColor}
+.agentcard h3{font-size:30px;margin:6px 0 10px}
+.loop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+@media (max-width:760px){.loop{grid-template-columns:minmax(0,1fr)}}
+.node{border:1px solid var(--line2);border-radius:14px;padding:16px 14px;text-align:left;background:rgba(27,42,94,.3);cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.node span{font-family:var(--mono);font-size:12px;color:var(--orange2)}
+.node b{font-family:var(--display);font-weight:400;font-size:24px}
+.node small{color:var(--muted);font-size:12.5px}
+.node[aria-selected="true"]{border-color:var(--orange);background:rgba(232,89,10,.12)}
+.node.gate{border-style:dashed}
+.ladder{display:flex;flex-direction:column;gap:8px}
+.rung{display:grid;grid-template-columns:70px minmax(0,1fr) auto;gap:14px;align-items:start;border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(27,42,94,.25)}
+.rung .lv{font-family:var(--display);font-size:38px;line-height:1;color:var(--dim)}
+.rung.live .lv{color:var(--good)} .rung.part .lv{color:var(--warn)} .rung.nextup .lv{color:var(--next)}
+.rung h3{font-family:var(--body);font-weight:700;font-size:17px}
+.rung p{color:var(--muted);font-size:14px;margin-top:3px}
+@media (max-width:620px){.rung{grid-template-columns:48px minmax(0,1fr)}.rung .pill{grid-column:2;justify-self:start}}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.plans{grid-template-columns:minmax(0,1fr)}}
+.plan{border:1px solid var(--line2);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.plan b{font-family:var(--display);font-weight:400;font-size:32px}
+.plan p{color:var(--muted);font-size:14.5px}
+.list{display:flex;flex-direction:column;gap:10px;padding:0;margin:0;list-style:none}
+.list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:15px}
+.list li::before{content:"→";color:var(--orange2)}
+.foot{font-size:12.5px;color:var(--dim)}
+a{color:var(--orange2)}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="prog"></i></div>
+<main>
+
+<section class="slide" data-title="BrandBrahma">
+  <div class="wrap">
+    <div class="eyebrow">Platform overview</div>
+    <div class="brand">Brand<span>Brahma</span></div>
+    <p class="tag">An agentic AI platform that names, builds, markets and grows a brand from one account.</p>
+    <div class="stats">
+      <div class="stat"><b>4</b><span>AI Operating Systems</span></div>
+      <div class="stat"><b>30+</b><span>AI agents</span></div>
+      <div class="stat"><b>50+</b><span>AI, data and platform integrations</span></div>
+      <div class="stat"><b>Oct 2026</b><span>Live at brandbrahma.com</span></div>
+    </div>
+    <div class="meta"><span>Use ← → or the controls below</span><span><a href="https://www.brandbrahma.com">brandbrahma.com</a></span></div>
+  </div>
+</section>
+
+<section class="slide alt" data-title="The problem">
+  <div class="wrap">
+    <div class="eyebrow">01 · The problem</div>
+    <h2 class="h2">A small business needs <em>seven vendors</em> to become a brand.</h2>
+    <p class="lede">Naming, legal checks, domains, design, SEO, social and ads usually mean separate logins, invoices and waits. BrandBrahma puts every step behind one account and one wallet, with agents that hand work to each other.</p>
+    <div class="vs">
+      <div class="vendors">
+        <div class="vendor"><span>Naming consultant</span><span>days</span></div>
+        <div class="vendor"><span>Trademark &amp; company search</span><span>lawyer fees</span></div>
+        <div class="vendor"><span>Domain broker</span><span>back-and-forth</span></div>
+        <div class="vendor"><span>Logo &amp; brand designer</span><span>weeks</span></div>
+        <div class="vendor"><span>SEO agency</span><span>monthly retainer</span></div>
+        <div class="vendor"><span>Social media manager</span><span>monthly retainer</span></div>
+        <div class="vendor"><span>Paid ads agency</span><span>% of spend</span></div>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="vendors one">
+        <div class="vendor"><span>Naming OS</span><span>names, domains, trademark</span></div>
+        <div class="vendor"><span>Branding OS</span><span>logo to landing page</span></div>
+        <div class="vendor"><span>Marketing OS</span><span>search, social, content, ads</span></div>
+        <div class="vendor"><span>Marketplace OS</span><span>buy and sell domains</span></div>
+        <div class="card" style="margin-top:6px"><h3>One Creator Hub wallet</h3><p>One balance for every agent. Pay as you go, or choose a Pro or Max plan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Four AI Operating Systems">
+  <div class="wrap">
+    <div class="eyebrow">02 · The platform</div>
+    <h2 class="h2">Four AI Operating Systems that work together.</h2>
+    <div class="grid g4 osgrid">
+      <div class="card"><b>Naming</b><p>Find a name that's available and safe to use.</p><ul><li>Name generation</li><li>Live domain availability</li><li>Trademark and company checks</li><li>Domain appraisal</li></ul></div>
+      <div class="card"><b>Branding</b><p>Turn a name into a complete identity.</p><ul><li>Logo studio</li><li>Brand kit and guidelines</li><li>Ads and social posts</li><li>Landing pages and merch</li></ul></div>
+      <div class="card"><b>Marketing</b><p>Get found and grow, from one console.</p><ul><li>Search visibility (SEO, AEO, GEO)</li><li>Social media</li><li>Content</li><li>Paid ads</li></ul></div>
+      <div class="card"><b>Marketplace</b><p>Buy and sell premium domains.</p><ul><li>AI listing builder</li><li>Escrow checkout</li><li>Agents that answer offers</li><li>Buyer brief matching</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide alt" data-title="End-to-end journey">
+  <div class="wrap">
+    <div class="eyebrow">03 · End to end</div>
+    <h2 class="h2">From an idea to a brand with customers.</h2>
+    <div class="row"><button class="btn primary" id="play" type="button">▶ Play the journey</button></div>
+    <div class="journey">
+      <ol class="steps" id="steps"></ol>
+      <div class="paper stage" id="stage" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-title="Agent explorer">
+  <div class="wrap">
+    <div class="eyebrow">04 · The agents</div>
+    <h2 class="h2">Agent explorer</h2>
+    <p class="lede">Pick an operating system, then an agent, to see what it does and how much it runs on its own.</p>
+    <div class="row" id="osTabs" role="tablist" aria-label="Operating systems"></div>
+    <div class="explorer">
+      <div class="agentlist" id="agentList" role="listbox" aria-label="Agents"></div>
+      <div class="paper agentcard" id="agentCard" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide alt" data-title="How the agents work">
+  <div class="wrap">
+    <div class="eyebrow">05 · Inside an agent</div>
+    <h2 class="h2">Agents that act, with you <em>in control</em>.</h2>
+    <p class="lede">Marketing agents follow one loop. Nothing changes on your live website, ad account or social profile until you approve it. Click a stage.</p>
+    <div class="loop" id="loop" role="tablist" aria-label="Agent loop"></div>
+    <div class="paper" id="loopDetail" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Automation">
+  <div class="wrap">
+    <div class="eyebrow">06 · Automation</div>
+    <h2 class="h2">Highly automated today, <em>full autopilot next</em>.</h2>
+    <div class="ladder" id="ladder"></div>
+  </div>
+</section>
+
+<section class="slide alt" data-title="Plans">
+  <div class="wrap">
+    <div class="eyebrow">07 · Pricing</div>
+    <h2 class="h2">One wallet for every agent.</h2>
+    <p class="lede">Credits work across all four operating systems. Prices are shown on the button before anything runs, and a job that fails is refunded automatically.</p>
+    <div class="plans">
+      <div class="plan"><b>Pay as you go</b><p>Top up any amount and use credits anywhere on the platform.</p></div>
+      <div class="plan"><b>Pro</b><p>Monthly or annual. More credits for the money, with chat included.</p></div>
+      <div class="plan"><b>Max</b><p>Monthly or annual. The most credits and the highest chat limit.</p></div>
+    </div>
+    <p class="foot">Free tools are available on every agent's page. Current prices are on <a href="https://www.brandbrahma.com">brandbrahma.com</a>.</p>
+  </div>
+</section>
+
+<section class="slide" data-title="Built to be trusted">
+  <div class="wrap">
+    <div class="eyebrow">08 · Trust</div>
+    <h2 class="h2">Built to be trusted with a business.</h2>
+    <div class="grid g3">
+      <div class="card"><h3>You approve changes</h3><p>Agents propose; you decide. Ad changes can be rolled back.</p></div>
+      <div class="card"><h3>Fair billing</h3><p>The price is on the button. Failed jobs are refunded automatically.</p></div>
+      <div class="card"><h3>Real data</h3><p>Scores come from live sources such as search rankings, trademark registries and ad accounts. The AI explains facts instead of guessing.</p></div>
+      <div class="card"><h3>Quality checks</h3><p>Creative work passes automated checks and an AI review before you see it.</p></div>
+      <div class="card"><h3>Secure</h3><p>Signed requests, encrypted secrets and server-side AI calls.</p></div>
+      <div class="card"><h3>Global</h3><p>Built for customers worldwide, with local payment options.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide alt" data-title="Get in touch">
+  <div class="wrap">
+    <div class="eyebrow">09 · Get in touch</div>
+    <div class="brand" style="font-size:clamp(44px,7vw,92px)">Brand<span>Brahma</span></div>
+    <div class="grid g2">
+      <ul class="list">
+        <li>Live at brandbrahma.com since October 2026</li>
+        <li>Four AI Operating Systems and 30+ agents</li>
+        <li>Real client brands delivered with Branding OS</li>
+        <li>Built and run by Raroy India Pvt Ltd, Bengaluru</li>
+      </ul>
+      <div class="card">
+        <h3>Partnerships and investment</h3>
+        <p>Contact Suresh Rathod, Founder &amp; CEO, through <a href="https://www.brandbrahma.com">brandbrahma.com</a>. A detailed briefing is available under NDA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<nav class="nav" aria-label="Slide controls">
+  <button type="button" id="prev" aria-label="Previous slide">↑</button>
+  <span class="count" id="count">01 / 09</span>
+  <button type="button" id="next" aria-label="Next slide">↓</button>
+</nav>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pad=n=>String(n).padStart(2,'0');
+const slides=$$('.slide');let cur=0;
+function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'smooth',block:'start'});}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>.45){cur=slides.indexOf(e.target);$('#count').textContent=pad(cur+1)+' / '+pad(slides.length);$('#prog').style.width=((cur+1)/slides.length*100)+'%';}}),{threshold:[.45,.6]});
+slides.forEach(s=>io.observe(s));
+$('#prev').onclick=()=>go(cur-1);$('#next').onclick=()=>go(cur+1);
+document.addEventListener('keydown',e=>{if(/input|select|textarea/i.test(e.target.tagName))return;
+ if(['ArrowDown','ArrowRight','PageDown'].includes(e.key)){e.preventDefault();go(cur+1);}
+ else if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1);}});
+
+const AUTO={auto:['Runs on its own','a-auto'],oneclick:['One click, fully automatic','a-oneclick'],approve:['Proposes, you approve','a-approve']};
+
+const J=[
+ ['Naming','Describe the idea','A chat agent turns one sentence into name ideas, choosing which naming tools to use.',['Name ideas','Reasons'],'oneclick'],
+ ['Naming','Check the domain','Every shortlisted name is checked live across popular extensions; only registrable ones are shown.',['Available domains'],'oneclick'],
+ ['Naming','Is the name safe?','Live trademark records and company registries are read into one clear verdict.',['Verdict','Conflicts','Safer variants'],'oneclick'],
+ ['Branding','Design the logo','Logo concepts are generated, checked and reviewed before you see them. Ask for changes in plain words.',['Wordmarks','Symbols','SVG + PNG'],'oneclick'],
+ ['Branding','Build the brand kit','A full identity from the chosen logo, with your details added.',['Brand guide','Business cards','Social covers'],'oneclick'],
+ ['Branding','Launch a landing page','A fast, accessible page with a lead form, published in about a minute.',['Live page','Lead inbox'],'oneclick'],
+ ['Branding','Create ads and posts','Ad sets in several sizes with copy, and social posts from one to a full month.',['Ad images','Post packs','Calendar'],'oneclick'],
+ ['Marketing','Get found and grow','Search, social, content and ads agents audit your brand, propose a plan and act once you approve.',['Plan','Applied fixes','Before/after'],'approve'],
+ ['Marketing','Stay on track','Weekly briefings and an optional autopilot that drafts next week’s posts within your budget.',['Briefing','Draft posts'],'auto'],
+ ['Marketplace','Buy or sell domains','List a domain in minutes. Agents answer offers, match buyers and keep the sale on track.',['Listing','Offers','Escrow'],'auto'],
+];
+let js=0,timer=null;
+function drawJ(){
+ $('#steps').innerHTML=J.map((s,i)=>`<li><button type="button" data-i="${i}" ${i===js?'aria-current="step"':''} class="${i<js?'done':''}"><span>${pad(i+1)}</span>${esc(s[1])}</button></li>`).join('');
+ const s=J[js],a=AUTO[s[4]];
+ $('#stage').innerHTML=`<div class="row" style="justify-content:space-between"><span class="muted mono" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase">${esc(s[0])} OS · step ${js+1} of ${J.length}</span><span class="pill ${a[1]}">${a[0]}</span></div><h3>${esc(s[1])}</h3><p>${esc(s[2])}</p><div class="outputs">${s[3].map(x=>`<i>${esc(x)}</i>`).join('')}</div>`;
+}
+function stop(){clearInterval(timer);timer=null;$('#play').textContent='▶ Play the journey';}
+$('#steps').onclick=e=>{const b=e.target.closest('button');if(b){stop();js=+b.dataset.i;drawJ();}};
+$('#play').onclick=()=>{if(timer){stop();return;}js=js>=J.length-1?0:js+1;drawJ();$('#play').textContent='❚❚ Pause';timer=setInterval(()=>{if(js>=J.length-1){stop();return;}js++;drawJ();},2600);};
+drawJ();
+
+const OS={naming:'Naming OS',branding:'Branding OS',marketing:'Marketing OS',marketplace:'Marketplace OS'};
+const A=[
+ ['naming','Naming agent','Chat-based naming','oneclick','Describe your idea and the agent generates names, checks domains, runs trademark and company searches and appraises domains in one conversation.'],
+ ['naming','Name Generator','Business and product names','oneclick','Brandable names in several languages, each with its reasoning.'],
+ ['naming','Domain Finder','Available domains','oneclick','Drafts names using proven naming techniques and shows only domains you can register today.'],
+ ['naming','Brand Check','Trademark and company clearance','oneclick','Searches live trademark records in India, the US and the EU, plus company registries, and gives a clear verdict with safer variants.'],
+ ['naming','Domain Appraiser','Domain valuation','oneclick','Estimates a domain’s value with comparable sales and registration data.'],
+ ['naming','Sanskrit Name Generator','Startup and baby names','oneclick','Meaningful Sanskrit names, with domain and trademark checks for business names.'],
+ ['branding','Logo Studio','Logos that pass review','oneclick','Generates logo concepts, checks and reviews them, and lets you refine them in plain words.'],
+ ['branding','Brand Kit','Complete identity','oneclick','Brand guide, business cards, letterhead, email signature, social covers and favicons.'],
+ ['branding','Ad Creatives','Ready-to-run ads','oneclick','Ad sets in several sizes with headlines and copy for Meta and Google.'],
+ ['branding','Social Post Packs','From one post to a month','oneclick','Posts and carousels with captions for each platform and a calendar file.'],
+ ['branding','Landing Pages','Pages that capture leads','oneclick','Fast, accessible pages with SEO built in and a lead form, published in about a minute.'],
+ ['branding','Merch','Your logo on products','oneclick','Product mockups and print-ready files for T-shirts, mugs, caps and more.'],
+ ['branding','Brand Strategy','Positioning and messaging','oneclick','A step-by-step strategy covering audience, personality and messaging.'],
+ ['branding','Brand Audit','Brand health check','oneclick','An audit of your brand across six areas, with priorities.'],
+ ['branding','Taglines and Messaging','On-brand words','oneclick','Taglines, tone of voice and on-brand copy.'],
+ ['branding','Pitch Deck Generator','Investor decks','oneclick','An investor deck from your business description.'],
+ ['marketing','Marketing console','One chat for all channels','approve','Ask in plain words. The console sends your question to the right agent and shows a plan you approve step by step.'],
+ ['marketing','Search Visibility agent','SEO, AEO and GEO','approve','Finds what stops you showing up in Google and AI answers, fixes it with your approval and proves the result with a fresh scan.'],
+ ['marketing','Search Visibility Audit','Free website audit','oneclick','Audit one page or your whole site and get a clear report.'],
+ ['marketing','Local SEO Audit','Local visibility','oneclick','Measures how you show up locally against real competitors.'],
+ ['marketing','Keyword & Competition Radar','Gaps and content brief','oneclick','Real search data turned into keyword gaps and a content brief.'],
+ ['marketing','Social Media agent','Grow your social presence','approve','Audits your profiles, plans actions and drafts content. An optional weekly autopilot works within your budget.'],
+ ['marketing','Social Presence Audit','Free social audit','oneclick','Audit any profile from a link or @handle.'],
+ ['marketing','Viral Content Fingerprint','What makes content spread','oneclick','Finds the patterns behind viral content in your niche.'],
+ ['marketing','30-Day Content Calendar','Plan a month','oneclick','A short chat produces a 30-day content calendar.'],
+ ['marketing','Content Engine agent','Content that ranks','approve','Audits your content, plans articles and writes them with your approval.'],
+ ['marketing','Brand Voice & Content DNA','Your voice, captured','oneclick','Extracts your tone and vocabulary into reusable writing guides.'],
+ ['marketing','Ad Intelligence agent','Google, Meta and Microsoft ads','approve','Reviews your live ad accounts, proposes improvements and applies them once you approve, with undo.'],
+ ['marketing','Marketing Health Score','Free diagnostic','oneclick','One score across search, social, content and ads.'],
+ ['marketplace','Domain Marketplace','Buy and sell domains','oneclick','List in minutes with the AI listing builder. Secure checkout and escrow.'],
+ ['marketplace','Negotiator','Answers offers for sellers','auto','Responds to offers within limits the seller sets, and keeps the seller informed.'],
+ ['marketplace','Matchmaker','Connects buyers','auto','Lets interested buyers know when a matching domain is listed.'],
+ ['marketplace','Price Coach','Pricing suggestions','auto','Suggests a price review for listings that aren’t getting offers.'],
+ ['marketplace','Brief Matcher','Domains from a brief','auto','Buyers describe what they need and get a shortlist of matching domains.'],
+];
+let osSel='marketing',agSel=null;
+function drawE(){
+ $('#osTabs').innerHTML=Object.entries(OS).map(([k,v])=>`<button type="button" class="chip" role="tab" aria-selected="${k===osSel}" data-k="${k}">${esc(v)}</button>`).join('');
+ const list=A.filter(a=>a[0]===osSel);if(!list.find(a=>a[1]===agSel))agSel=list[0][1];
+ $('#agentList').innerHTML=list.map(a=>`<button type="button" class="agentbtn" role="option" aria-selected="${a[1]===agSel}" data-n="${esc(a[1])}"><span><b>${esc(a[1])}</b><small>${esc(a[2])}</small></span><span class="dot ${AUTO[a[3]][1]}" title="${esc(AUTO[a[3]][0])}"></span></button>`).join('');
+ const a=A.find(x=>x[1]===agSel);
+ $('#agentCard').innerHTML=`<div class="row" style="justify-content:space-between"><span class="muted mono" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase">${esc(OS[a[0]])}</span><span class="pill ${AUTO[a[3]][1]}">${AUTO[a[3]][0]}</span></div><h3>${esc(a[1])}</h3><p>${esc(a[4])}</p>`;
+}
+$('#osTabs').onclick=e=>{const b=e.target.closest('[data-k]');if(b){osSel=b.dataset.k;agSel=null;drawE();}};
+$('#agentList').onclick=e=>{const b=e.target.closest('[data-n]');if(b){agSel=b.dataset.n;drawE();}};
+drawE();
+
+const LOOP=[['Perceive','Read live data','The agent looks at the real state of your website, profiles, content or ad account.'],['Plan','Priced steps','It turns findings into clear steps, each with its price, so you see the total first.'],['Approve','You decide','Nothing runs until you approve it. Approve one step, skip one, or approve all.'],['Act','Do the work','The agent makes the approved changes for you.'],['Verify','Prove it worked','A fresh check compares before and after, so you can see the result.']];
+let ls=2;
+function drawL(){$('#loop').innerHTML=LOOP.map((s,i)=>`<button type="button" role="tab" class="node ${i===2?'gate':''}" aria-selected="${i===ls}" data-i="${i}"><span>${pad(i+1)}${i<4?' →':''}</span><b>${s[0]}</b><small>${s[1]}</small></button>`).join('');
+ $('#loopDetail').innerHTML=`<h3 style="font-size:28px;margin-bottom:8px">${esc(LOOP[ls][0])}</h3><p>${esc(LOOP[ls][2])}</p>`;}
+$('#loop').onclick=e=>{const b=e.target.closest('.node');if(b){ls=+b.dataset.i;drawL();}};drawL();
+
+const LAD=[['1','Answers','Chat and reports on request.','live','Live'],['2','Delivers end to end','One request becomes a finished deliverable, with payment, checks and delivery handled automatically.','live','Live'],['3','Acts with your approval','Agents plan changes to your live accounts, act when you approve and verify the result.','live','Live'],['4','Acts alone within limits','Scheduled agents work in the background inside limits you set.','part','Partly live'],['5','Full autopilot','Cross-channel plans that run on a schedule within your budget.','nextup','Coming next']];
+$('#ladder').innerHTML=LAD.map(r=>`<div class="rung ${r[3]}"><div class="lv">L${r[0]}</div><div><h3>${esc(r[1])}</h3><p>${esc(r[2])}</p></div><span class="pill ${r[3]==='live'?'a-auto':r[3]==='part'?'a-oneclick':'a-next'}">${r[4]}</span></div>`).join('');
+})();
+</script>
+</body>
+</html>
